@@ -477,7 +477,7 @@ public class GameController implements Initializable {
                         detectShoot();
                         detectWallCollision();
                         detectBroderCollision();
-                        //comprobarWinner();
+                        comprobarWinner();
 
                         //sleep
                         try {
@@ -489,7 +489,6 @@ public class GameController implements Initializable {
                 }
         ).start(); //Se debe poner el start para que lo que esté en draw funcione
     }
-
 
     void comprobarWinner() {
         Stage currentStage = null;
@@ -504,9 +503,16 @@ public class GameController implements Initializable {
                     PlayerNames.getInstance().setWinner2(1);
                 }
 
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("GANADOR");
+                alert.setContentText("PLAYER " + players.get(0).getId() + " IS THE WINNER")  ;
+                alert.setHeaderText("GANADOR");
+                alert.showAndWait();
+
             }
 
             Application.showWindow("Puntajes.fxml");
+
             currentStage.hide();
 
         }
